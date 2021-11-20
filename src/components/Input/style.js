@@ -9,6 +9,7 @@ export const Div = styled.div`
         position: absolute;
         left: 10px;
         top: 50%;
+        padding: 0 3px;
         transform: translateY(-40%);
         font-size: 16px;
         color: gray;

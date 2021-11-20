@@ -1,10 +1,11 @@
+import { Routers } from "./router/Routers"
 
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    </div>
+    <>
+      <Routers />
+    </>
   );
-}
+};
 
 export default App;

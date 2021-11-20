@@ -5,6 +5,13 @@ export const Div = styled.div`
     margin-bottom: 25px;
     position: relative;
 
+    span{
+        position: absolute;
+        left: 10px;
+        top: 100%;
+        font-size: 12px;
+        color: red;
+    }
     label{
         position: absolute;
         left: 10px;

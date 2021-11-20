@@ -1,7 +1,6 @@
 import { Hearder } from "../styles/MainStyle";
 
 import { Switch, Route, Link} from "react-router-dom";
-import { } from "react-icons/fa";
 
 import Cadastre from "../pages/Cadastre";
 import Login from "../pages/Login";

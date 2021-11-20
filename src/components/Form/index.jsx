@@ -1,8 +1,8 @@
 import { Section } from "./style";
 
-const Form = ({ children }) => {
+const Form = ({ children, onSubmit }) => {
     return (
-        <Section autoComplete="off">{ children }</Section>
+        <Section autoComplete="off" onSubmit={ onSubmit } >{ children }</Section>
     );
 };
 

@@ -18,17 +18,8 @@ export const Section = styled.form`
         margin: 20px 0;
     }
 
-    [type="submit"]{
-        background-color: rgb(68, 47, 163);
-        color: white;
-    }
-
-    [type="button"]{
-        background-color: rgb(236, 236, 236);
-        color: gray;
-    }
-
     @media (min-width: 500px){
         margin: 20px 0;
+        background-color: white;
     }
 `;

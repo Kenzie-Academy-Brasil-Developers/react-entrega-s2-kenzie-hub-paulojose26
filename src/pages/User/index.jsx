@@ -49,7 +49,7 @@ const User = ({ user, setUser }) => {
                     <button><AiOutlinePlus /></button>
                 </header>
                 { user && user.techs.map(tech => (
-                    <Item className="item--tech">
+                    <Item className="item--tech" key={tech.id}>
                         <figure className="image--tech">
                             <FiCodesandbox />
                         </figure>
@@ -66,7 +66,7 @@ const User = ({ user, setUser }) => {
                     <button><AiOutlinePlus /></button>
                 </header>
                 { user && user.works.map(work => (
-                    <Item className="item--work">
+                    <Item className="item--work" key={work.id}>
                         <figure className="image--work">
                             <FiGitPullRequest />
                         </figure>

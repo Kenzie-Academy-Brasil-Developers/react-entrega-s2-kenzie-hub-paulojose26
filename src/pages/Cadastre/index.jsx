@@ -1,8 +1,11 @@
 import { Section } from "./style";
 
+import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import toast from "react-hot-toast";
+import Api from "../../services/Api";
 
 import Form from "../../components/Form";
 import Input from "../../components/Input";
@@ -10,6 +13,8 @@ import Radio from "../../components/Radio";
 import Button from "../../components/Button";
 
 const Cadastre = () => {
+    const history = useHistory();
+
     const validation = yup.object().shape({
         name: yup.string().required("Campo Obrigatório"),
         email: yup.string().required("Campo Obrigatório").email("E-mail Inválido"),
@@ -24,8 +29,21 @@ const Cadastre = () => {
         resolver: yupResolver(validation)
     });
 
-    function cadastreAccount(){
-
+    function cadastreAccount(datas){
+        toast.loading("Espere...");
+        Api.post("/users", datas).then(response => {
+            toast.remove();
+            toast.success("Cadastro realizado com Sucesso", {
+                duration: 2000
+            });
+            history.push("/login");
+        }).catch(error => {
+            console.log(error.message);
+            toast.remove();
+            toast.error("Esse e-mail já existente", {
+                duration: 2000
+            })
+        });
     }
 
     return (

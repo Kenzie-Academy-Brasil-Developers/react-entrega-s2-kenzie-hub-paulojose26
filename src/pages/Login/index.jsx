@@ -51,9 +51,9 @@ const Login = () => {
         <Form onSubmit={ handleSubmit(loginAccount) }>
             <Input id="email" type="text" placeholder="Login" register={ register } error={ errors.email }/>
             <Input id="password" type="password" placeholder="Senha" register={ register } error={ errors.password } />
-            <Button type="submit">Logar</Button>
+            <Button type="submit" className="button--purple">Logar</Button>
             <p>Criar uma Página para mostar suas <br/><strong>habilidades metas e progresso</strong></p>
-            <Button type="button" onClick={ () => history.push("/cadastre") }>Cadastrar</Button>
+            <Button type="button" className="button--gray" onClick={ () => history.push("/cadastre") }>Cadastrar</Button>
         </Form>
     );
 };

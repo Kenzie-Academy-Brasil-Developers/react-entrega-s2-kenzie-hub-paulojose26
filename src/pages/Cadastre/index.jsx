@@ -44,7 +44,7 @@ const Cadastre = () => {
             </Section>
             <Input id="password" type="password" placeholder="Senha*" register={ register } error={ errors.password } />
             <Input id="confirm_password" type="password" placeholder="Confirme a senha*" register={ register } error={ errors.confirm_password } />
-            <Button type="submit">Cadastrar</Button>
+            <Button type="submit" className="button--purple">Cadastrar</Button>
         </Form>
     );
 };

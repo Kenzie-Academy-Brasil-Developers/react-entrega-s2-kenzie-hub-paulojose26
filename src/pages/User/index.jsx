@@ -1,16 +1,20 @@
 import { Section, ArticleDesc, ArticleUser, Item } from "./style";
 
 import { useHistory } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FiGitPullRequest, FiCodesandbox } from "react-icons/fi";
 import { AiOutlinePlus, AiOutlineMobile, AiOutlineMail } from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
 
 import Api from "../../services/Api";
+import Button from "../../components/Button"
 
 const User = ({ user, setUser }) => {
     const history = useHistory();
+    const [ atualizar, setAtualizar ] = useState(false);
+    const [ tech, setTech ] = useState({});
+    const [ work, setWork ] = useState({});
 
     useEffect(() => {
         let token = localStorage.getItem("token");
@@ -35,7 +39,7 @@ const User = ({ user, setUser }) => {
         else{
             history.push("/login");
         }
-    }, []);
+    }, [atualizar]);
 
     return (
         <Section>
@@ -110,6 +114,11 @@ const User = ({ user, setUser }) => {
                             </div>
                         )}
                     </article>
+                    <Button onClick={ () => {
+                        setUser(null);
+                        localStorage.removeItem("token");
+                        history.push("/login");
+                    }} className="button--gray">Sair</Button>
                 </section>
             </ArticleUser>
         </Section>

@@ -66,10 +66,11 @@ export const ArticleUser = styled.article`
     display: flex;
     border-radius: 10px;
     flex-direction: column;
-    align-items: center;
     background-color: white;
 
     section{
+        display: flex;
+        flex-direction: column;
         width: 100%;
         padding: 10px;
     }
@@ -80,7 +81,6 @@ export const ArticleUser = styled.article`
         margin-bottom: 10px;
         padding: 10px;
         border-radius: 10px;
-        align-items: stretch;
     }
 
     section article figure{

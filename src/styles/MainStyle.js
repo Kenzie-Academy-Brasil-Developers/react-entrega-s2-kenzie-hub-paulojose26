@@ -9,13 +9,16 @@ export const Main = styled.main`
     justify-content: center;
     align-items: center;
 
-    @media (min-width: 500px){
+    @media (min-width: 700px){
+        padding: 15px 30px;
         justify-content: start;
+        background-color: rgb(236, 236, 236);
     }
 `;
 
 export const Hearder = styled.header`
     width: 100%;
+    max-width: 1200px;
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -50,7 +53,10 @@ export const Hearder = styled.header`
         width: 100%;
     }
 
-    @media (min-width: 500px){
+    @media (min-width: 600px){
+        border-radius: 10px;
+        background-color: white;
+
         a{
             font-size: 25px;
         }

@@ -13,7 +13,7 @@ const Cadastre = () => {
     const validation = yup.object().shape({
         name: yup.string().required("Campo Obrigatório"),
         email: yup.string().required("Campo Obrigatório").email("E-mail Inválido"),
-        contact: yup.string().required("Campo Obrigatório"),
+        contact: yup.string().required("Campo Obrigatório").matches("(?=.*[0-9])", "Apenas números"),
         bio: yup.string(),
         course_module: yup.string().nullable().required("Selecione uma das opções"),
         password: yup.string().required("Campo Obrigatório").min(6, "Mínimo 6 caracteres"),

@@ -13,10 +13,10 @@ const Cadastre = () => {
     const validation = yup.object().shape({
         name: yup.string().required("Campo Obrigatório"),
         email: yup.string().required("Campo Obrigatório").email("E-mail Inválido"),
-        contact: yup.string().required("Campo Obrigatório").matches("(?=.*[0-9])", "Apenas números"),
+        contact: yup.string().required("Campo Obrigatório"),
         bio: yup.string(),
         course_module: yup.string().nullable().required("Selecione uma das opções"),
-        password: yup.string().required("Campo Obrigatório").min(8, "Mínimo 8 caracteres"),
+        password: yup.string().required("Campo Obrigatório").min(6, "Mínimo 6 caracteres"),
         confirm_password: yup.string().oneOf([yup.ref("password")], "Senhas diferentes")
     });
 
@@ -32,14 +32,14 @@ const Cadastre = () => {
         <Form autoComplete="off" onSubmit={ handleSubmit(cadastreAccount) }>
             <Input id="name" type="text" placeholder="Nome*" register={ register } error={ errors.name } />
             <Input id="email" type="email" placeholder="E-mail*" register={ register } error={ errors.email } />
-            <Input id="contact" type="text" placeholder="Contato*" register={ register } error={ errors.contact } />
+            <Input id="contact" type="text" placeholder="Contato*" register={ register } />
             <Input id="bio" type="text" placeholder="Bio" register={ register } />
             <label htmlFor="">Selecionar módulo*:</label>
             <Section>
-                <Radio id="first--module" name="course_module" placeholder="Primeiro" register={ register } value="1º Módulo (Programação Inicial)" />
-                <Radio id="second--module" name="course_module" placeholder="Segundo" register={ register } value="2º Módulo (Frontend avançado)" />
-                <Radio id="third--module" name="course_module" placeholder="Terceiro" register={ register } value="3º Módulo (Backend)" />
-                <Radio id="fourth--module" name="course_module" placeholder="Quarto" register={ register } value="4º Módulo (Backend avançado)" />
+                <Radio id="first--module" name="course_module" placeholder="Primeiro" register={ register } value="Primeiro módulo (Introdução ao Frontend)" />
+                <Radio id="second--module" name="course_module" placeholder="Segundo" register={ register } value="Segundo módulo (Frontend Avançado)" />
+                <Radio id="third--module" name="course_module" placeholder="Terceiro" register={ register } value="Terceiro módulo (Introdução ao Backend)" />
+                <Radio id="fourth--module" name="course_module" placeholder="Quarto" register={ register } value="Quarto módulo (Backend Avançado)" />
                 <span>{ errors.course_module?.message }</span>
             </Section>
             <Input id="password" type="password" placeholder="Senha*" register={ register } error={ errors.password } />

@@ -35,8 +35,21 @@ export const Hearder = styled.header`
     }
 
     a.perfilUser{
+        font-size: 30px;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: rgb(236, 236, 236);
         margin-left: auto;
     }
+    a.perfilUser img{
+        width: 100%;
+    }
+
     @media (min-width: 500px){
         a{
             font-size: 25px;

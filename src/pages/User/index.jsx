@@ -8,13 +8,17 @@ import { AiOutlinePlus, AiOutlineMobile, AiOutlineMail } from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
 
 import Api from "../../services/Api";
-import Button from "../../components/Button"
+import Button from "../../components/Button";
+import FormTech from "../../components/FormTech";
+import FormWork from "../../components/FormWork";
 
 const User = ({ user, setUser }) => {
     const history = useHistory();
     const [ atualizar, setAtualizar ] = useState(false);
-    const [ tech, setTech ] = useState({});
-    const [ work, setWork ] = useState({});
+    const [ tech, setTech ] = useState(null);
+    const [ techForm, setTechForm ] = useState(false);
+    const [ work, setWork ] = useState(null);
+    const [ workForm, setWorkForm ] = useState(false);
 
     useEffect(() => {
         let token = localStorage.getItem("token");
@@ -42,11 +46,12 @@ const User = ({ user, setUser }) => {
     }, [atualizar]);
 
     return (
+        <>
         <Section>
             <ArticleDesc>
                 <header className="header--tech">
                     <h1>Minhas Tecnologias</h1>
-                    <button><AiOutlinePlus /></button>
+                    <button onClick={() => setTechForm(true)}><AiOutlinePlus /></button>
                 </header>
                 { user && user.techs.map(tech => (
                     <Item className="item--tech" key={tech.id}>
@@ -63,7 +68,7 @@ const User = ({ user, setUser }) => {
             <ArticleDesc>
                 <header className="header--work">
                     <h1>Meus Trabalhos</h1>
-                    <button><AiOutlinePlus /></button>
+                    <button onClick={() => setWorkForm(true)}><AiOutlinePlus /></button>
                 </header>
                 { user && user.works.map(work => (
                     <Item className="item--work" key={work.id}>
@@ -122,6 +127,11 @@ const User = ({ user, setUser }) => {
                 </section>
             </ArticleUser>
         </Section>
+        {techForm && <FormTech setAtualizar={ setAtualizar } setTechForm={ setTechForm } 
+            tech={ tech } setTech={ setTech } />}
+        {workForm && <FormWork setAtualizar={ setAtualizar } setWorkForm={ setWorkForm } 
+            work={ work } setWork={ setWork } />}
+        </>
     );
 };
 

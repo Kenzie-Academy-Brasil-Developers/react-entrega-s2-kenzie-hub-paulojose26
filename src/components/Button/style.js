@@ -8,7 +8,8 @@ export const Section = styled.button`
     cursor: pointer;
 
     &.button--green{
-
+        background-color: #11995E;
+        color: white;
     }
     &.button--gray{
         background-color: rgb(236, 236, 236);

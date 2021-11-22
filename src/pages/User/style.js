@@ -3,12 +3,14 @@ import styled from "styled-components";
 export const Section = styled.section`
     width: 100%;
     max-width: 1200px;
-    min-height: 70vh;
+    height: 70vh;
     margin: 15px 0;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
+    overflow-y: auto;
 
     @media (min-width: 900px){
         flex-direction: row;

@@ -45,4 +45,7 @@ export const Section = styled.section`
         margin-bottom: 18px;
         position: relative;
     }
+    form > div button{
+        width: 50%;
+    }
 `;

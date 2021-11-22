@@ -14,6 +14,9 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         outline: none;
     }
+    .root{
+        overflow: hidden;
+    }
 `;
 
 export default GlobalStyle;

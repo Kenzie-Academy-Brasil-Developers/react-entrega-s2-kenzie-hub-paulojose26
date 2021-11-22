@@ -9,7 +9,6 @@ export const Section = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: auto;
     
     p{
         font-size: 14px;

@@ -12,8 +12,10 @@ import Button from "../Button";
 import Api from "../../services/Api";
 
 const FormTech = ({ tech, setTech, atualizar, setAtualizar, setTechForm }) => {
-    const validation = yup.object().shape({
+    const validation = (!tech)? yup.object().shape({
         title: yup.string().required("Campo Obrigatório"),
+        status: yup.string().nullable().required("Campo Obrigatório")
+    }) : yup.object().shape({
         status: yup.string().nullable().required("Campo Obrigatório")
     });
     console.log(tech);
@@ -103,7 +105,8 @@ const FormTech = ({ tech, setTech, atualizar, setAtualizar, setTechForm }) => {
                 </h2>
                 <Input id="title" placeholder="Nome da tecnologia*" type="text" 
                     register={ register } error={ errors.title } value={ tech && tech.title } 
-                    className={ (!tech)? "" : "input--focus" } classLabel={ (!tech)? "" : "label--focus" } />
+                    className={ (!tech)? "" : "input--focus" } classLabel={ (!tech)? "" : "label--focus" }
+                    disabled={ (tech)? true : false } />
                 <label>Selecionar status:</label>
                 <div>
                     <Radio id="inicio" name="status" placeholder="Iniciante" 
@@ -115,11 +118,11 @@ const FormTech = ({ tech, setTech, atualizar, setAtualizar, setTechForm }) => {
                     <span>{ errors.status?.message }</span>
                 </div>
                 {(!tech)? <Button type="submit" className="button--purple">Cadastrar</Button>: (
-                    <>
+                    <div>
                         <Button type="submit" className="button--green">Salvar alterações</Button>
                         <Button type="button" className="button--gray" 
                             onClick={ onClickDelete }>Excluir</Button>
-                    </>
+                    </div>
                 )}
             </Form>
         </Section>

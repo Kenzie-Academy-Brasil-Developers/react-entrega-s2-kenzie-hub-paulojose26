@@ -3,14 +3,11 @@ import styled from "styled-components";
 export const Section = styled.section`
     width: 100%;
     max-width: 1200px;
-    height: 70vh;
     margin: 15px 0;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
-    overflow-y: auto;
 
     @media (min-width: 900px){
         flex-direction: row;
@@ -80,6 +77,9 @@ export const ArticleUser = styled.article`
     section article{
         width: 100%;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         margin-bottom: 10px;
         padding: 10px;
         border-radius: 10px;
@@ -88,6 +88,7 @@ export const ArticleUser = styled.article`
     section article figure{
         width: 60px;
         height: 60px;
+        margin-bottom: 10px;
         margin-right: 10px;
         display: flex;
         justify-content: center;
@@ -162,6 +163,15 @@ export const ArticleUser = styled.article`
         color: rgb(236, 236, 236);
     }
 
+    @media (min-width: 400px){
+        section article{
+            flex-direction: row;
+            text-align: start;
+        }
+        section article figure{
+            margin-bottom: 0;
+        }
+    }
     @media (min-width: 900px){
         max-width: 340px;
     }

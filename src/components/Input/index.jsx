@@ -1,9 +1,16 @@
 import { Div } from "./style";
 
-const Input = ({ id, type, placeholder, register, error, value, className, classLabel }) => {
+import { useState } from "react";
+
+const Input = ({ id, type, placeholder, register, error, value, className, classLabel, disabled }) => {
+    const [ txtInput, setTxtInput ] = useState(value);
+
     function onChange(event){
         let label = event.target.parentElement.lastChild;
 
+        if(value){
+            setTxtInput(event.target.value);
+        }
         if(event.target.value === ""){
             event.target.className = "";
             label.className = "";
@@ -19,7 +26,7 @@ const Input = ({ id, type, placeholder, register, error, value, className, class
             <span>{ error?.message }</span>
             <input id={ id } type={ type } onChange={ onChange } { ...(register)? register(id, {
                 onChange: onChange
-            }) : {}} value={ value && value } className={ className } />
+            }) : {}} value={ value && txtInput } className={ className } disabled={ disabled } />
             <label className={ classLabel } htmlFor={ id }>{ placeholder }</label>
         </Div>
     );

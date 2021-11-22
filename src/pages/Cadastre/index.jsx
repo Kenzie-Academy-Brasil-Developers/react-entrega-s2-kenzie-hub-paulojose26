@@ -54,14 +54,20 @@ const Cadastre = () => {
             <Input id="bio" type="text" placeholder="Bio" register={ register } />
             <label htmlFor="">Selecionar módulo*:</label>
             <Section>
-                <Radio id="first--module" name="course_module" placeholder="Primeiro" register={ register } value="Primeiro módulo (Introdução ao Frontend)" />
-                <Radio id="second--module" name="course_module" placeholder="Segundo" register={ register } value="Segundo módulo (Frontend Avançado)" />
-                <Radio id="third--module" name="course_module" placeholder="Terceiro" register={ register } value="Terceiro módulo (Introdução ao Backend)" />
-                <Radio id="fourth--module" name="course_module" placeholder="Quarto" register={ register } value="Quarto módulo (Backend Avançado)" />
+                <Radio id="first--module" name="course_module" placeholder="Primeiro" 
+                    register={ register } value="Primeiro módulo (Introdução ao Frontend)" />
+                <Radio id="second--module" name="course_module" placeholder="Segundo" 
+                    register={ register } value="Segundo módulo (Frontend Avançado)" />
+                <Radio id="third--module" name="course_module" placeholder="Terceiro" 
+                    register={ register } value="Terceiro módulo (Introdução ao Backend)" />
+                <Radio id="fourth--module" name="course_module" placeholder="Quarto" 
+                    register={ register } value="Quarto módulo (Backend Avançado)" />
                 <span>{ errors.course_module?.message }</span>
             </Section>
-            <Input id="password" type="password" placeholder="Senha*" register={ register } error={ errors.password } />
-            <Input id="confirm_password" type="password" placeholder="Confirme a senha*" register={ register } error={ errors.confirm_password } />
+            <Input id="password" type="password" placeholder="Senha*" register={ register } 
+                error={ errors.password } />
+            <Input id="confirm_password" type="password" placeholder="Confirme a senha*" 
+                register={ register } error={ errors.confirm_password } />
             <Button type="submit" className="button--purple">Cadastrar</Button>
         </Form>
     );

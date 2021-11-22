@@ -2,16 +2,23 @@ import styled from "styled-components";
 
 export const Main = styled.main`
     width: 100%;
-    min-height: 100vh;
-    display: flex;
+    height: 100vh;
     padding: 15px;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar{
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: gray;
+        border-radius: 20px;
+    }
 
     @media (min-width: 700px){
         padding: 15px 30px;
-        justify-content: start;
         background-color: rgb(236, 236, 236);
     }
 `;
@@ -36,7 +43,6 @@ export const Hearder = styled.header`
         background-color: purple;
         color: white;
     }
-
     a.perfilUser{
         font-size: 30px;
         width: 45px;

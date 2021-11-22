@@ -1,6 +1,6 @@
 import { Div } from "./style";
 
-const Input = ({ id, type, placeholder, register, error }) => {
+const Input = ({ id, type, placeholder, register, error, value, className, classLabel }) => {
     function onChange(event){
         let label = event.target.parentElement.lastChild;
 
@@ -19,8 +19,8 @@ const Input = ({ id, type, placeholder, register, error }) => {
             <span>{ error?.message }</span>
             <input id={ id } type={ type } onChange={ onChange } { ...(register)? register(id, {
                 onChange: onChange
-            }) : {}} />
-            <label htmlFor={ id }>{ placeholder }</label>
+            }) : {}} value={ value && value } className={ className } />
+            <label className={ classLabel } htmlFor={ id }>{ placeholder }</label>
         </Div>
     );
 };

@@ -13,11 +13,11 @@ const FormWork = ({ setAtualizar, setWorkForm, work, setWork }) => {
                 <h2>Cadastrar Tecnologia <button  type="button" 
                     onClick={ () => {
                         setWorkForm(false);
-                        setWork({});
+                        setWork(null);
                     } }>X</button> </h2>
                 <Input id="title" placeholder="Nome do Trabalho" type="text" />
                 <Textarea id="description" placeholder="Descrição" />
-                <Button type="submit" className="button--purple">Cadastrar</Button>
+                <Button type="button" className="button--purple">Cadastrar</Button>
             </Form>
         </Section>
     )

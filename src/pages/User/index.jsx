@@ -54,7 +54,11 @@ const User = ({ user, setUser }) => {
                     <button onClick={() => setTechForm(true)}><AiOutlinePlus /></button>
                 </header>
                 { user && user.techs.map(tech => (
-                    <Item className="item--tech" key={tech.id}>
+                    <Item className="item--tech" key={ tech.id } 
+                        onClick={ ()=> {
+                            setTechForm(true);
+                            setTech(tech);
+                        }}>
                         <figure className="image--tech">
                             <FiCodesandbox />
                         </figure>
@@ -128,7 +132,7 @@ const User = ({ user, setUser }) => {
             </ArticleUser>
         </Section>
         {techForm && <FormTech setAtualizar={ setAtualizar } setTechForm={ setTechForm } 
-            tech={ tech } setTech={ setTech } />}
+            tech={ tech } setTech={ setTech } atualizar={ atualizar } />}
         {workForm && <FormWork setAtualizar={ setAtualizar } setWorkForm={ setWorkForm } 
             work={ work } setWork={ setWork } />}
         </>

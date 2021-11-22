@@ -43,7 +43,7 @@ const User = ({ user, setUser }) => {
         else{
             history.push("/login");
         }
-    }, [atualizar]);
+    }, [atualizar, history, setUser]);
 
     return (
         <>
